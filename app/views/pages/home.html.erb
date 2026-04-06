@@ -1,0 +1,34 @@
+<% content_for(:title) { "Junaid Ashraf — Interior Design Portfolio" } %>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1 class="hero-title">Junaid Ashraf</h1>
+    <p class="hero-subtitle">Senior Interior Designer creating beautiful, functional spaces for modern living.</p>
+    <%= link_to "About Me", about_path, class: "hero-link" %>
+  </div>
+</section>
+
+<section class="projects-section" id="projects">
+  <div class="projects-grid">
+    <% @projects.each do |project| %>
+      <%= link_to project_path(slug: project[:slug]), class: "project-card" do %>
+        <div class="project-image" style="background-color: <%= project_color(project[:slug]) %>">
+          <% if project[:thumbnail] %>
+            <%= image_tag project[:thumbnail], alt: project[:title], class: "project-thumb" %>
+          <% else %>
+            <div class="project-image-placeholder">
+              <span><%= project[:title][0, 2].upcase %></span>
+            </div>
+          <% end %>
+          <div class="project-overlay">
+            <span class="project-view">View Project</span>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3 class="project-title"><%= project[:title] %></h3>
+          <p class="project-meta"><%= project[:category] %> &mdash; <%= project[:year] %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</section>

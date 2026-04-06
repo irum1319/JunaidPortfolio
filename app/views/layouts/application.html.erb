@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Junaid Ashraf — Interior Designer" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Junaid Ashraf Portfolio">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Interior Design Portfolio — Creating beautiful, functional spaces">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <%= link_to "Junaid", root_path, class: "nav-logo" %>
+        <div class="nav-links">
+          <%= link_to "Portfolio", root_path, class: "nav-link #{current_page?(root_path) ? 'active' : ''}" %>
+          <%= link_to "About Me", about_path, class: "nav-link #{current_page?(about_path) ? 'active' : ''}" %>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="site-main">
+      <%= yield %>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <p class="footer-name">Junaid Ashraf</p>
+          <p class="footer-contact">New York, NY &nbsp;|&nbsp; <a href="mailto:Junaid Ashraf@example.com">Junaid Ashraf@example.com</a></p>
+        </div>
+        <p class="footer-copy">&copy; Junaid Ashraf, <%= Date.current.year %></p>
+      </div>
+    </footer>
+  </body>
+</html>

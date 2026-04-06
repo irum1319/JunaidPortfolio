@@ -1,0 +1,47 @@
+<% content_for(:title) { "#{@project[:title]} — Junaid Ashraf Interior Designer" } %>
+
+<section class="project-hero">
+  <div class="project-hero-inner">
+    <div class="project-hero-text">
+      <h1 class="project-hero-title"><%= @project[:title] %></h1>
+      <div class="project-hero-meta">
+        <span><%= @project[:category] %></span>
+        <span class="meta-divider">/</span>
+        <span><%= @project[:year] %></span>
+        <span class="meta-divider">/</span>
+        <span><%= @project[:location] %></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="project-content">
+  <div class="project-content-inner">
+    <div class="project-description">
+      <p><%= @project[:description] %></p>
+    </div>
+
+    <div class="project-gallery">
+      <% @project[:images].each_with_index do |img, idx| %>
+        <div class="gallery-item <%= 'gallery-item--wide' if idx == 0 %>"
+             style="background-color: <%= gallery_color(idx) %>">
+          <% if img.match?(/\.mp4$/) %>
+            <video class="gallery-video" autoplay muted loop playsinline>
+              <source src="<%= asset_path(img) %>" type="video/mp4">
+            </video>
+          <% elsif img.match?(/\.\w+$/) %>
+            <%= image_tag img, alt: "#{@project[:title]} — Image #{idx + 1}", class: "gallery-image" %>
+          <% else %>
+            <div class="gallery-placeholder">
+              <span><%= @project[:title] %> — Image <%= idx + 1 %></span>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<div class="project-back">
+  <%= link_to "← Back to Portfolio", root_path, class: "back-link" %>
+</div>
