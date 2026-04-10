@@ -27,34 +27,37 @@ class PagesController < ApplicationController
       year: "2023",
       location: "Manhattan, NY",
       description: "A minimalist office design focused on productivity and well-being. Clean lines, ergonomic furniture, and biophilic elements create a workspace that inspires creativity while maintaining a clutter-free environment.",
-      images: %w[project3_1 project3_2 project3_3]
+      thumbnail: "island/island.jpeg",
+      images: %w[island/island_video.mp4 island/island1.jpeg island/island2.jpeg]
     },
     {
-      slug: "boutique-hotel-lobby",
-      title: "Boutique Hotel Lobby",
+      slug: "school-design",
+      title: "School Design",
       category: "Hospitality",
       year: "2023",
       location: "SoHo, NY",
       description: "An elegant hotel lobby that sets the tone for a memorable guest experience. Rich textures, statement lighting, and carefully curated furnishings create a sophisticated welcome space that balances luxury with comfort.",
-      images: %w[project4_1 project4_2 project4_3]
+      thumbnail: "school/school1.jpeg",
+      images: %w[school/school1.jpeg school/school2.jpeg school/school3.jpeg]
     },
     {
-      slug: "penthouse-renovation",
-      title: "Penthouse Renovation",
+      slug: "blender-product-design-and-animation",
+      title: "Blender Product Design and Animation",
       category: "Residential",
       year: "2023",
       location: "Upper East Side, NY",
       description: "A full-scale penthouse renovation that transforms a dated space into a contemporary masterpiece. Floor-to-ceiling windows, custom furniture, and an open floor plan maximize the stunning city views.",
-      images: %w[project5_1 project5_2 project5_3]
-    },
-    {
-      slug: "spa-retreat-design",
-      title: "Spa Retreat Design",
-      category: "Hospitality",
-      year: "2022",
-      location: "Hamptons, NY",
-      description: "A serene spa environment designed to promote relaxation and rejuvenation. Natural materials, soothing color palettes, and thoughtful spatial planning create an immersive wellness experience.",
-      images: %w[project6_1 project6_2 project6_3]
+      thumbnail: "perfume/perfume.png",
+      images: [
+        "perfume/perfume.png",
+        "perfume/NUSUK Render Result.mp4",
+        "perfume/Untitled Result Render 1.mp4",
+        "perfume/perfume1.png",
+        "perfume/perfume2.jpeg",
+        "perfume/Nusuk.png",
+        "perfume/30604.png",
+        "perfume/IMG-20260313-WA0000.jpg.jpeg"
+      ]
     }
   ].freeze
 
